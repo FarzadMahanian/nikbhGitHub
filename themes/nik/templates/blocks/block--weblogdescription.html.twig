@@ -1,0 +1,22 @@
+<div class="ui text container mb6 mt4">
+    <h2 class="ui container header center aligned">{{ 'News' | t }}</h2>
+    <h5 class="ui horizontal divider header nik-red fwn">
+        <a href="{{ url('<front>') }}/news">{{ 'see all news' | t }}</a>
+        <i class="angle right icon"></i>
+    </h5>
+    <p class="font-color">
+        {% block content %}
+            {{ content }}
+        {% endblock %}
+    </p>
+</div>
+
+<div class="ui container mb6">
+    <div class="ui grid">
+        <div class="eight wide column">{{ drupal_view('news_page', 'block_1') }}</div>
+        <div class="eight wide column">
+            <div class="mb10p">{{ drupal_view('news_page', 'block_2') }}</div>
+            {{ drupal_view('news_page', 'block_3') }}
+        </div>
+    </div>
+</div>

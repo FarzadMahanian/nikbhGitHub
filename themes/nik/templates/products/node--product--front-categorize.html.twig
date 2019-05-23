@@ -1,0 +1,21 @@
+<div class="front-wide rel">
+    <a href="{{ url }}">
+        <img class="ui image " src="{{ node.field_main_picture.entity.fileuri | image_style('main_picture') }}">
+    </a>
+    <div class="abs bottom-description p2">
+        {#<h4 class="ui header"><a href="{{ url }}">{{ label }}</a></h4>#}
+
+        <h3 class="ui header inverted">
+            <a class="" href="{{ content.field_product_type[0]['#url'] }}">
+                {{ content.field_product_type[0]['#title'] }}
+            </a>
+        </h3>
+        <h5 class="ui header left floated">
+            <a href="{{ url }}">{{ label }}</a>
+        </h5>
+        <i class="ui icon caret right float-left"></i>
+        <div class="ml15">
+            {{ content.body }}
+        </div>
+    </div>
+</div>

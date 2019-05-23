@@ -1,0 +1,14 @@
+<div class="ui card">
+    <a class="image" href="{{ node.field_link[0].url }}">
+        <img src="{{ node.field_main_picture.entity.fileuri | image_style('large') }}">
+    </a>
+    <div class="content">
+        <a class="header nik-red" href="{{ node.field_link[0].url }}">{{ label }}</a>
+        <div class="meta">
+            <span class="date">{{ content.field_item_type[0]['#title'] }}</span>
+        </div>
+        <div class="description">
+            {{ content.body }}
+        </div>
+    </div>
+</div>

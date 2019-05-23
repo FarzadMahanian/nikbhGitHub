@@ -1,0 +1,82 @@
+<?php
+function nikm_theme($existing, $type, $theme, $path) {
+    $language_id = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $host_path = \Drupal::request()->getScheme() . '://' . \Drupal::request()
+            ->getHost();
+    $base_path = $host_path;
+    $base_path .= DIRECTORY_SEPARATOR;
+    if ($language_id != 'en') {
+        $base_path .= $language_id . DIRECTORY_SEPARATOR;
+    }
+    $image_path = $base_path . 'themes/nik/app/images/';
+    $default_variables = [
+        'host_path' => $host_path,
+        'base_path' => $base_path,
+        'language_id' => $language_id,
+        'image_url' => $image_path
+    ];
+    return [
+        'products' => [
+            'variables' => array_merge($default_variables, [
+                'all_types' => NULL,
+                'picture' => NULL
+            ])
+        ],
+        'contactEmail' => [
+            'variables' => [
+                'formParams' => NULL
+            ]
+        ],
+        'serviceEmail' => [
+            'variables' => [
+                'formParams' => NULL
+            ]
+        ],
+        'orderEmail' => [
+            'variables' => [
+                'formParams' => NULL
+            ]
+        ],
+        'spareEmail' => [
+            'variables' => [
+                'formParams' => NULL
+            ]
+        ],
+        'salesService' => [
+            'variables' => array_merge($default_variables, [
+                'products' => NULL
+            ])
+        ],
+        'joinpage' => [
+            'variables' => array_merge($default_variables, [
+            ])
+        ]
+    ];
+}
+
+function nikm_mail($key, &$message, $params) {
+    $options = array(
+        'langcode' => $message['langcode'],
+    );
+    switch ($key) {
+        case 'Contact':
+            $message['from'] = $params['from'];
+            $message['subject'] = t('Contact Message From "@title"', array('@title' => $params['title']), $options);
+            $message['body'][] = $params['message'];
+            break;
+        case 'Service':
+            $message['from'] = $params['from'];
+            $message['subject'] = t('Sales Service Message From "@title"', array('@title' => $params['title']), $options);
+            $message['body'][] = $params['message'];
+            break;
+        case 'Join':
+            $message['from'] = $params['from'];
+            $message['subject'] = t('Join Message From "@title"', array('@title' => $params['title']), $options);
+            $message['body'][] = $params['message'];
+            break;
+    }
+}
+
+function nikm_query_random_alter($query) {
+    $query->orderRandom();
+}

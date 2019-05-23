@@ -1,0 +1,433 @@
+<div class="ui blur-top mix-blend" style="background: url({{ node.field_main_picture.entity.fileuri | image_style('blur_top') }});">
+    <div class="ui container center aligned">
+        <h1 class="ui inverted header">{{ label }}</h1>
+    </div>
+</div>
+<div class="ui container">
+    <div class="ui tiny breadcrumb pt2 pb2">
+        <a class="section" href="{{ path('<front>') }}">{{ 'Home' | t }}</a>
+        <i class="right chevron icon divider"></i>
+        <div class="active section">{{ label }}</div>
+    </div>
+</div>
+
+<div class="ui sticky under-menu">
+    <div class="ui container menu nik-blue inverted  goto">
+        <div class="ui container">
+            <a class="item" data-title="Add users to your feed" data-tab="about-us">{{ 'About Us' | t }}</a>
+            <a class="item" data-tab="our-customers">{{ 'Our Customers' | t }}</a>
+            <a class="item" data-tab="our-partners">{{ 'Our Partners' | t }}</a>
+            <a class="item" data-tab="contact-us">{{ 'Contact Us' | t }}</a>
+        </div>
+    </div>
+</div>
+
+<main class="ui main container" role="main">
+
+    {#TAB about company#}
+    <h2 id="about-us" class="ui header show-icon">{{ 'Nik Company' | t }}</h2>
+    <div class="ui clearing divider"></div>
+    <div class="text font-color">{{ content.body }}</div>
+    <div class="about-us-time-line">
+
+        <div class="each-time-line">
+            <div class="year">۱۳۳۹</div>
+            <div class="content ui left pointing label">
+                <h3 class="header">شرکت پرسپولیس</h3>
+                <p>
+                    کپی برداری از یخچال های  شرکت لینده آلمان و شروع کار برودت صنعتی
+                    همزمان با تاسیس شرکت زاگرس که از روی یخچال های وستینگهاوس کپی برداری میکرد
+                    و تاسیس شرکت پولاریس
+                    در ابتدا یخچال های ویترینی مغازه ای و کم کم گسترش پیدا میکنند به یخچال قصابی و قنادی و غیره و در سال های بعد یخچال های بستنی به آن اضافه شد .
+                    تولد صنعت تبرید صنعتی در ایران
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۴۲</div>
+            <div class="content ui right pointing label">
+                <p>
+                    اولین سردخانه صنعتی در تهران تاسیس می شود به نام سردخانه بزرگ تهران در خیابان شوش با ظرفیت ۲۰۰ تن به کمک شرکت لینده آلمان و اجرا توسط شرکت پرسپولیس
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۴۶</div>
+            <div class="content ui left pointing  label">
+                <h3 class="header">تعطیل شدن شرکت پرسپولیس</h3>
+                <p>شروع فعالیت مستقل با تولید انبوه سردخانه های کوچک تجاری با نام پارس تکنیک</p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۴۸</div>
+            <div class="content ui right pointing  label">
+                <p>
+                    فوت نیک نام پدر و شروع به کار مستقل علی نیک نام
+                    انجام خدمات پس از فروش شرکت پرسپولیس و فروش و تولید سردخانه های تجاری به صورت مستقل
+                    ساخت یخچال های سوپرمارکتی و یخچال های رو باز  مناسب برای صنعت گوشت و مرغ و ماهی
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۵۰</div>
+            <div class="content ui left pointing  label">
+                <p>اضافه شدن برادران به کار</p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۵۲</div>
+            <div class="content ui right pointing  label">
+                <p>تاسیس دفتر فنی علی نیک نام</p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۵۴</div>
+            <div class="content ui left pointing  label">
+                <p>
+                    ساخت یخسازها بزرگ صنعتی (پری فابریکه)
+                    فروش یخساز صنعتی به شرکت کشت و صنعت کارون
+                    فروش یخساز صنعتی برای کمپینگ پروژه اتوبان تهران -قم به شرکت راه سازی ملاوی
+                    ساخت و فروش سردخانه های بزرگ صنعتی
+                    همکاری با شرکت های وابسته به صنعت شیلات و صنایع غذایی
+                    چلوکبابی یاس
+                    چلوکبابی حسن خانی
+                    ساخت سردخانه های متحرک با ابعاد مختلف
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۵۷</div>
+            <div class="content ui right pointing  label">
+                <p>شروع به ساخت کارخانه در شهرک صنعتی بهشتی</p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۵۸</div>
+            <div class="content ui left pointing  label">
+                <p>افتتاح کارخانه</p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۵۹</div>
+            <div class="content ui right pointing  label">
+                <p>
+                    دریافت پروانه کارگاه برای تولیدات سردخانه ای
+                    شروع تحقیقات برای ماشین بستنی ساز قیفی
+                    شروع جنگ
+                    تولید یخسازی برای خطوط مقدم جنگی
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۶۲</div>
+            <div class="content ui left pointing  label">
+                <p>
+                    ساخت یخسازهای صنعتی با ظرفیت ۴۰ تن در روز  برای لشگرهای مستقر در اهواز ( لشکر ۹۲)، دزفول، ایلام، گیلانغرب،ایرانشهر، زابل
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۶۳</div>
+            <div class="content ui right pointing  label">
+                <p>تولید انبوه دستگاه بستنی ساز</p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۶۴</div>
+            <div class="content ui left pointing  label">
+                <p>
+                    ثبت شرکت برودتی و حرارتی نیک به صورت رسمی
+                    گسترش کارخانه و تاسیس دومین کارخانه نیک
+                    انتقال دفتر به خیابان میرزای شیرازی
+                    طراحی سردخانه های بزرگ آمونیاکی و صنعتی برای اولین بار در ایران
+
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۶۷</div>
+            <div class="content ui right pointing  label">
+                <p>
+                    خودکفایی در تولید سردخانه های صنعتی در ایران به واسطه تولید تمام تجهیزات موردنیاز در این صنعت
+                    اخذ نمایندگی انحصاری از شرکت مایکوم ژاپن برای کمپرسورهای برودتی
+                    انتقال کارخانه به کیلومتر ۱۷ جاده کرج
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۷۰</div>
+            <div class="content ui left pointing  label">
+                <p>
+                    شروع به ساخت تجهیزات مربوط به سردخانه های فریونی
+                    تاسیس کارخانه نیک دو در کردان
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۷۵</div>
+            <div class="content ui right pointing  label">
+                <p>
+                    شروع ساخت تجهیزات برای صنعت نفت و گاز و پتروشیمی
+                    ساخت اویل کولرهای ایستگاه های تقویت فشار گاز خط سراسری انتقال گاز  مشابه نمونه سوئیسی
+                </p>
+            </div>
+        </div>
+
+        <div class="each-time-line">
+            <div class="year">۱۳۸۸</div>
+            <div class="content ui left pointing  label">
+                <p>شروع به طراحی و تولید تجهیزات تهویه مطبوع</p>
+            </div>
+        </div>
+    </div>
+    {#TAB customers#}
+    <div class="p2">
+        <h2 id="our-customers" class="ui header show-icon">{{ 'Our Customers' | t }}</h2>
+        <div class="ui clearing divider"></div>
+
+        <div class="doubling">
+            {{ drupal_view('get_items_bye_type', 'block_1', 'Customers') }}
+        </div>
+    </div>
+    {#TAB partners#}
+    <div class="p2">
+        <h2 id="our-partners" class="ui header show-icon">{{ 'Our Partners' | t }}</h2>
+        <div class="ui clearing divider"></div>
+
+        <div class="card-cross pt2">
+            <div class="ui inverted dimmer">
+                <div class="ui text loader">Loading</div>
+            </div>
+            {{ drupal_view('get_items_bye_type', 'block_2', 'Partners') }}
+        </div>
+    </div>
+    {#TAB contact#}
+    <h2 id="contact-us" class="ui header show-icon">{{ 'Contact Us' | t }}</h2>
+    <div class="ui clearing divider"></div>
+    <div class="ui grid">
+        {#<div class="widescreen only computer only tablet only mobile only sixteen wide column">
+            <div class="img-width100 slide-image mobile only">
+                {% for more_image in node.field_more_pictures %}
+                    <img src="{{ more_image.entity.fileuri | image_style('main_picture') }}">
+                {% endfor %}
+            </div>
+        </div>#}
+        <div class="ui rounded six wide large screen sixteen wide tablet column map">
+            {{ content.field_location }}
+        </div>
+
+        <div class="ten wide large screen sixteen wide tablet column p2">
+            <div class="ui container font-color">
+
+                <form id="contactForm" class="ui form">
+                    <div class="field">
+                        <label>{{ 'Name' | t }}</label>
+                        <input type="text" name="name" placeholder="{{ 'Name' | t }}">
+                    </div>
+                    <div class="field">
+                        <label>{{ 'Email' | t }}</label>
+                        <input type="text" name="email" placeholder="{{ 'Email' | t }}">
+                    </div>
+                    <div class="field">
+                        <label>{{ 'Message' | t }}</label>
+                        <textarea name="message" placeholder="{{ 'Message' | t }}"></textarea>
+                    </div>
+                    <button class="ui button blue" type="submit" name="message-send">{{ 'Send' | t }}</button>
+                    <div class="ui error message"></div>
+                    <div class="ui success message"></div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <button id="go-top-btn" data-content="{{ 'Goto Top' | t }}">
+        <i class="ui icon large angle up m0 nik-blue-color"></i>
+    </button>
+
+</main>
+<script type="text/javascript">
+
+    jQuery(function () {
+        jQuery.address.change(function(event) {
+            var overload = jQuery('.sticky').height();
+            if (jQuery('.sticky.fixed').length > 0) {
+                overload = 0;
+            }
+
+            if (event.pathNames.length < 1) {
+                return false;
+            }
+            var selectedMenu = jQuery('#' + event.pathNames[0]);
+            setTimeout(function() {
+                jQuery('html, body').animate({
+                    scrollTop: selectedMenu.offset().top - jQuery('.top-banner').outerHeight() - selectedMenu.outerHeight() - overload
+                }, 'slow');
+            }, 200);
+        });
+
+        var createPartenrsSlick = function () {
+            jQuery('.card-cross .view-content').slick({
+                rtl : NIK.isRTL,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 4000,
+                responsive: [
+                    {
+                        breakpoint: NIK.responsive.large_screen,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true
+                        }
+                    },
+                    {
+                        breakpoint: NIK.responsive.computer,
+                        settings: {
+                            arrows: false,
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: NIK.responsive.tablet,
+                        settings: {
+                            arrows: false,
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            dots: false
+                        }
+                    }
+                ]
+            });
+        };
+
+        var createImageSlick = function () {
+            jQuery('.slide-image').slick({
+                rtl : NIK.isRTL,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                arrows: false,
+                speed: 1000,
+                fade: true,
+                cssEase: 'ease-out',
+                autoplay: true,
+                autoplaySpeed: 4000
+            });
+        };
+
+        createImageSlick();
+        createPartenrsSlick();
+
+        var w = jQuery(window);
+        var topBtn = jQuery('#go-top-btn');
+        w.scroll(function () {
+            var scrollTop = w.scrollTop();
+            if (scrollTop > 500) {
+                topBtn.css('left', '30px');
+                topBtn.popup();
+            } else if (scrollTop < 500) {
+                topBtn.css('left', '-100px');
+            }
+        });
+        topBtn.click(function () {
+            jQuery('html, body').animate({scrollTop: 0}, 'slow');
+        });
+
+        var menuItems = jQuery('.ui.menu.goto .item');
+        menuItems.click(function (item) {
+            var destination = jQuery(item.currentTarget).attr('data-tab');
+            jQuery.address.value(destination)
+        });
+
+        var menuContainer = function (me) {
+            return jQuery(me).find('.ui.menu');
+        };
+        jQuery('.ui.sticky').sticky({
+            context: 'main',
+            onStick: function () {
+                menuContainer(this).addClass('br0');
+                menuContainer(this).removeClass('container');
+
+            },
+            onUnstick: function () {
+                menuContainer(this).removeClass('br0');
+                menuContainer(this).addClass('container');
+            }
+        });
+
+        var contactForm = jQuery('#contactForm');
+        contactForm.form({
+            fields: {
+                name: 'empty',
+                email: ['email', 'empty'],
+                message: 'empty'
+            }
+        });
+
+        contactForm.submit(function (e) {
+            var form = jQuery(e.target);
+            var getMessageBox = function(msg) {
+                return form.find('.' + msg + '.message');
+            };
+            e.preventDefault();
+            if (!form.form('is valid')) {
+                getMessageBox('error').transition('shake');
+                return false;
+            }
+            form.addClass('loading');
+            var formArray = form.serializeArray();
+            var formObject = {};
+            jQuery.each(formArray,
+                function (i, v) {
+                    formObject[v.name] = v.value;
+                });
+
+            var url = drupalSettings.path.baseUrl;
+            if (drupalSettings.path.currentLanguage != 'en') {
+                url += drupalSettings.path.currentLanguage + '/';
+            }
+            jQuery.ajax({
+                url: url + 'nik/sendContact',
+                data: JSON.stringify(formObject),
+                type: 'POST',
+                contentType: 'application/json',
+                success: function (r) {
+                    form.removeClass('loading');
+                    getMessageBox('success').html(Drupal.t('Your message has been sent successfully.'));
+                    getMessageBox('success').show();
+                    console.log('success', r);
+                },
+                error: function (r) {
+                    form.removeClass('loading');
+                    getMessageBox('error').html(Drupal.t('There is a problem on message server.'));
+                    getMessageBox('error').transition('shake');
+                    console.log('error', r);
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+

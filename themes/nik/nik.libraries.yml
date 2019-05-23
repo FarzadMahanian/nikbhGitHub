@@ -1,0 +1,44 @@
+nik-header:
+    header: true
+    js:
+        app/lib/PACE/pace.min.js: {}
+        app/lib/parallax.js/parallax.min.js: {}
+        app/js/base.js: {}
+        app/js/slideshow.js: {}
+        app/js/banner-menu.js: {}
+        app/lib/jquery-address/src/jquery.address.js: {}
+    dependencies:
+        - core/jquery
+
+nik-theme:
+    css:
+        theme:
+            app/lib/PACE/themes/purple/pace-theme-flash.css: {}
+            app/lib/slick-carousel/slick/slick.css: {}
+            app/lib/slick-carousel/slick/slick-theme.css: {}
+            app/css/styles.css: {}
+            app/assets/css/semantic.min.css: {}
+            app/css/font.css: {}
+
+
+    js:
+        app/lib/semantic/dist/semantic.min.js: {}
+        app/lib/slick-carousel/slick/slick.min.js: {}
+    dependencies:
+        - core/jquery
+
+nik-theme-rtl:
+    css:
+        theme:
+            app/lib/PACE/themes/purple/pace-theme-flash.css: {}
+            app/lib/slick-carousel/slick/slick.css: {}
+            app/lib/slick-carousel/slick/slick-theme.css: {}
+            app/css/styles-rtl.css: {}
+            app/assets/css/semantic.min-rtl.css: {}
+            app/css/font-rtl.css: {}
+
+    js:
+        app/lib/semantic/dist/semantic.min.js: {}
+        app/lib/slick-carousel/slick/slick.min.js: {}
+    dependencies:
+        - core/jquery

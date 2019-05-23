@@ -1,0 +1,5 @@
+name: Nikm
+type: module
+description: "Nik modules"
+package: Nik
+core: 8.x

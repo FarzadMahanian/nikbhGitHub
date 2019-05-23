@@ -1,0 +1,29 @@
+{% set url = url('<front>')['#markup'] %}
+{% set air_conditioning = url ~ 'air-conditioning' %}
+{% set industrial_refrigeration = url ~ 'industrial-refrigeration' %}
+{% set oil_and_gas_and_petrochemistry = url ~ 'oil-and-gas-and-petrochemistry' %}
+{% set food_industry = url ~ 'food-industry' %}
+{% if language_id == 'fa' %}
+    {% set air_conditioning = url ~ '/تجهیزات-تهویه-مطبوع' %}
+    {% set industrial_refrigeration = url ~ '/تجهیزات-سرمایش-صنعتی' %}
+    {% set oil_and_gas_and_petrochemistry = url ~ '/تجهیزات-نفت،-گاز-و-پتروشیمی' %}
+    {% set food_industry = url ~ '/تجهیزات-صنایع-غذایی' %}
+{% endif %}
+<ul class="ui four column center aligned padded grid nik-blue four-wide in-white">
+    <li class="column">
+        <img class="ui avatar image" src="{{ base_path }}themes/nik/app/images/tm.svg">
+        <span><a href="{{ air_conditioning }}">{{ 'Air Conditioning' | t }}</a></span>
+    </li>
+    <li class="column">
+        <img class="ui avatar image" src="{{ base_path }}themes/nik/app/images/ts.svg">
+        <span><a href="{{ industrial_refrigeration }}">{{ 'Industrial refrigeration' | t }}</a></span>
+    </li>
+    <li class="column">
+        <img class="ui avatar image" src="{{ base_path }}themes/nik/app/images/ng.svg">
+        <span><a href="{{ oil_and_gas_and_petrochemistry }}">{{ 'Oil and gas and petrochemistry' | t }}</a></span>
+    </li>
+    <li class="column">
+        <img class="ui avatar image" src="{{ base_path }}themes/nik/app/images/sg.svg">
+        <span><a href="{{ food_industry }}">{{ 'Food industry' | t }}</a></span>
+    </li>
+</ul>

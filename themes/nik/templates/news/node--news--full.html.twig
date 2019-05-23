@@ -1,0 +1,44 @@
+{% set title = 'News' | t %}
+{% set news_url = url('<front>')['#markup'] ~ '/news' %}
+{% set sub_title = 'see all news' | t %}
+{% if 'Learning' in content.field_type[0]['#title'] %}
+    {% set title = 'Learning Documents' | t %}
+    {% set sub_title = 'see all documents' | t %}
+    {% set news_url = url('<front>')['#markup'] ~ '/news/learning' %}
+{% endif %}
+
+
+<div class="ui blur-top" style="background: url({{ node.field_main_picture.entity.fileuri | image_style('blur_top') }});">
+    <div class="ui container center aligned">
+        <h1 class="ui inverted header">{{ label }}</h1>
+    </div>
+</div>
+
+<div class="ui main container">
+
+    <div class="ui text container">
+        <div class="ui tiny breadcrumb">
+            <a class="section" href="{{ url('<front>') }}">{{ 'Home' | t }}</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="{{ news_url }}">{{ title }}</a>
+            <i class="right chevron icon divider"></i>
+            <div class="active section">{{ label }}</div>
+        </div>
+        <div class="ui clearing divider"></div>
+
+        <img class="ui image fluid" src="{{ node.field_main_picture.entity.fileuri | image_style('main_picture') }}" alt="{{ label[0]['#context']['value'] }}">
+
+        <div class="mt2">
+            {{ content.body }}
+        </div>
+
+        <div class="ui container font-color center aligned mt2">
+            <a class="ui basic button" href="{{ news_url }}">
+                {{ sub_title }}
+            </a>
+        </div>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,22 @@
+<div class="mask-all"></div>
+<div class="layout-container">
+    <header class="" role="banner">
+        {{ page.header }}
+        {{ page.primary_menu }}
+    </header>
+
+    {{ page.slideshow }}
+
+    {{ page.highlighted }}
+
+    {{ page.help }}
+
+    {{ page.content }}
+
+    {% if page.footer %}
+        <footer role="footer">
+            {{ page.footer }}
+        </footer>
+    {% endif %}
+
+</div>

@@ -1,0 +1,28 @@
+{{ 'Sale Service Order' | t }}
+<hr />
+<table>
+    <tr>
+        <td>{{ 'Name' | t }}</td>
+        <td>{{ formParams.name }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Message' | t }}</td>
+        <td>{{ fromParams.message }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Phone' | t }}</td>
+        <td>{{ formParams.phone }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Email' | t }}</td>
+        <td>{{ formParams.email }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Product' | t }}</td>
+        <td>
+            {% for p in formParams.product %}
+                {{ p }},
+            {% endfor %}
+        </td>
+    </tr>
+</table>

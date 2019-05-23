@@ -1,0 +1,200 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the visitoiran theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function nik_preprocess_html(array &$variables) {
+    if ($variables['html_attributes']['dir'] == 'rtl') {
+        $variables['#attached']['library'][] = 'nik/nik-theme-rtl';
+    } else {
+        $variables['#attached']['library'][] = 'nik/nik-theme';
+    }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function nik_page_attachments_alter(array &$page) {
+
+}
+
+/**
+ * Implements hook_preprocess_page() for page.html.twig.
+ */
+function nik_preprocess_page(array &$variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function nik_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ */
+function nik_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+
+    $node = $variables['elements']['#node'];
+    if ($variables['elements']['#view_mode'] == "full") {
+        $suggestions[] = 'node__title_' . strtolower(str_replace(' ', '_', $node->getTitle()));
+    }
+    $suggestions[] = 'node__' . strtolower(str_replace(' ', '_', $node->getType()))
+        . '_' . \Drupal::languageManager()
+            ->getCurrentLanguage()
+            ->getId() . '__' . $variables['elements']['#view_mode'];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Block document templates.
+ */
+function nik_preprocess_block(array &$variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function nik_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function nik_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function nik_preprocess_node(array &$variables) {
+    $variables['base_path'] = base_path();
+    $variables['language_id'] = \Drupal::languageManager()
+        ->getCurrentLanguage()
+        ->getId();
+}
+
+///**
+// * Implements hook_theme_suggestions_views_view_alter().
+// */
+//function nik_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+//    $suggestions[] = 'nikview_' . strtolower(str_replace(' ', '_', $variables['view']->getTitle()));
+//}
+//
+///**
+// * Implements hook_theme_suggestions_views_view_fields_alter().
+// */
+//function nik_theme_suggestions_views_view_fields_alter(array &$suggestions, array $variables) {
+//    $suggestions[] = 'view__view__fields_' . strtolower(str_replace(' ', '_', $variables['view']->getTitle()));
+//}
+
+/**
+ * Implements hook_preprocess_form().
+ */
+function nik_preprocess_form(array &$variables) {
+    //$variables['attributes']['novalidate'] = 'novalidate';
+}
+
+/**
+ * Implements hook_preprocess_select().
+ */
+function nik_preprocess_select(array &$variables) {
+    //$variables['attributes']['class'][] = 'select-chosen';
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+/*function nik_preprocess_field(array &$variables, $hook) {
+    $element = $variables['element'];
+    switch ($element['#field_name']) {
+        case 'title' :
+            var_dump($element);
+            break;
+    }
+}*/
+
+/**
+ * Implements hook_preprocess_details().
+ */
+function nik_preprocess_details(array &$variables) {
+    /*$variables['attributes']['class'][] = 'details';
+    $variables['summary_attributes']['class'] = 'summary';*/
+}
+
+/**
+ * Implements hook_theme_suggestions_details_alter().
+ */
+function nik_theme_suggestions_details_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function nik_preprocess_menu_local_task(array &$variables) {
+    //$variables['element']['#link']['url']->setOption('attributes', ['class'=>'rounded']);
+}
+
+function nik_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+    /*$form['keys']['#attributes']['placeholder'] = t('Search');
+    $form['keys']['#attributes']['autocomplete'] = 'off';
+    $lang = NULL;
+    if (\Drupal::languageManager()->getCurrentLanguage()->getId() != 'en') {
+        $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        $form['#action'] = base_path() . $lang . '/search';
+    }
+    else {
+        $form['#action'] = '/search';
+    }*/
+}
+
+function nik_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'views_exposed_form') {
+        if (isset($form['title'])) {
+            $form['title']['#attributes'] = array('placeholder' => array(t('Search contents below...')));
+        }
+    }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+
+function nik_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+    $language = $direction = \Drupal::languageManager()
+        ->getCurrentLanguage()
+        ->getId();
+    $block = $variables['elements']['#id'];
+    $suggestions[] = 'block__title_' . $language . '_' . strtolower(str_replace(' ', '_', $block));
+}
+
+
+function nik_preprocess(&$variables, $hook) {
+    $language_id = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $host_path = \Drupal::request()->getScheme() . '://' . \Drupal::request()
+            ->getHost();
+    $base_path = $host_path;
+    $base_path .= DIRECTORY_SEPARATOR;
+
+    $variables['language_id'] = $language_id;
+    $variables['host_path'] = $host_path;
+    $variables['base_path'] = $base_path;
+}
+
+function nik_preprocess_taxonomy_term(&$variables) {
+    $tid = $variables['term']->id();
+    if (\Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadParents($tid)) {
+        $variables['parentName'] = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadParents($tid)[1]->getName();
+        $variables['parentId'] = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadParents($tid)[1]->id();
+    }
+}

@@ -1,0 +1,12 @@
+<div class="ui text container mb6">
+    <h2 class="ui container header center aligned">{{ 'Design, Product and Air Condirion' | t }}</h2>
+    <h5 class="ui horizontal divider header nik-red fwn">
+        <a href="{{ url('productsPage') }}">{{ 'see all products' | t }}</a>
+        <i class="angle right icon"></i>
+    </h5>
+    <p class="font-color">
+        {% block content %}
+            {{ content }}
+        {% endblock %}
+    </p>
+</div>

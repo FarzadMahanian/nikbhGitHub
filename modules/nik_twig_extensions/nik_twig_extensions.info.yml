@@ -1,0 +1,5 @@
+name: Nik Twig Extensions
+description: Nik twig extensions
+package: Custom
+type: module
+core: 8.x

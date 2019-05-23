@@ -1,0 +1,71 @@
+$fpath: '../fonts/';
+
+$name: 'iranSans/IranSans';
+@font-face {
+    font-family: 'IranSans';
+    src: url('#{$fpath}#{$name}.otf');
+    src: local('#{$name}'),
+    url('#{$fpath}#{$name}.ttf') format('truetype'),
+    url('#{$fpath}#{$name}.woff') format('woff'),
+    url('#{$fpath}#{$name}.woff2') format('woff2');
+}
+
+$name: 'iranSans/IranSansLight';
+@font-face {
+    font-family: 'IranSansLight';
+    src: url('#{$fpath}#{$name}.otf');
+    src: local('#{$name}'),
+    url('#{$fpath}#{$name}.ttf') format('truetype'),
+    url('#{$fpath}#{$name}.woff') format('woff'),
+    url('#{$fpath}#{$name}.woff2') format('woff2');
+}
+
+$name: 'iranSans/IranSansBold';
+@font-face {
+    font-family: 'IranSansBold';
+    src: url('#{$fpath}#{$name}.otf');
+    src: local('#{$name}'),
+    url('#{$fpath}#{$name}.ttf') format('truetype'),
+    url('#{$fpath}#{$name}.woff') format('woff'),
+    url('#{$fpath}#{$name}.woff2') format('woff2');
+}
+
+body, .container, .menu, a, li, input, .button, label, button, textarea {
+    font-family: IranSansLight, Tahoma, Arial, Sans-Serif, serif !important;
+}
+p, .field--name-body {
+    line-height: 1.8em !important;
+}
+.header, .header span,
+.ui.breadcrumb .active.section {
+    font-family: IranSans, Tahoma, Arial, Sans-Serif, serif !important;
+    font-weight: normal !important;
+}
+.container li {
+    line-height: 2em;
+}
+
+i.icon.angle.left:before {
+    content: "\f105";
+}
+i.icon.angle.right:before {
+    content: "\f104";
+}
+i.icon.caret.right:before {
+    content: "\f0d9";
+}
+i.icon.caret.left:before {
+    content: "\f0da";
+}
+i.icon.arrow.right:before {
+    content: "\f060";
+}
+i.icon.arrow.left:before {
+    content: "\f061";
+}
+i.icon.chevron.right:before {
+    content: "\f053";
+}
+i.icon.chevron.left:before {
+    content: "\f054";
+}

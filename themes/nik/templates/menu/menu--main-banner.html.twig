@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+
+<div class="ui top-banner">
+    <a href="{{ url('<front>') }}">
+        <img class="main-logo" src="{{ base_path }}themes/nik/app/images/logo.svg" alt="Nik">
+    </a>
+    <div class="ui secondary small menu banner-menu">
+        {% for item in items %}
+            {% if item.below %}
+                <div class="ui pointing dropdown item">
+                    <a class="text" href="{{ item.url }}{{ item.original_link.getDescription()|split('|')[1] }}">{{ item.title }}</a>
+                    <div class="menu">
+                        {% for i in item.below %}
+                            {% if i.below %}
+                                <div class="item">
+                                    <i class="dropdown icon"></i>
+                                    <a class="text" href="{{ i.url }}{{ i.original_link.getDescription()|split('|')[1] }}">{{ i.title }}</a>
+                                    <div class="menu pointing">
+                                        {% for j in i.below %}
+                                            <a class="item" href="{{ j.url }}{{ j.original_link.getDescription()|split('|')[1] }}">{{ j.title }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <a class="item" href="{{ i.url }}{{ i.original_link.getDescription()|split('|')[1] }}">{{ i.title }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% else %}
+                <a class="item" href="{{ item.url }}{{ item.original_link.getDescription()|split('|')[1] }}">{{ item.title }}</a>
+            {% endif %}
+
+        {% endfor %}
+
+        <div class="right menu">
+            <div class="item">
+                <form class="ui action input" action="{{ url('<front>') }}/search">
+                    <input type="text" name="title" placeholder="{{ 'Search' | t }}">
+                    <button class="ui icon button">
+                        <i class="search icon"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="ui dropdown item">
+                <i class="world icon large"></i>
+                {#<div class="text">{{ 'Language' | t }}</div>#}
+                <div class="menu">
+                    {% if language_id == 'fa' %}
+                        <a class="item" href="{{ base_path }}"><i class="gb flag"></i>{{ 'English' | t }}</a>
+                    {% else %}
+                        <a class="item" href="{{ base_path }}fa"><i class="ir flag"></i>{{ 'Persian' | t }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

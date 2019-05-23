@@ -1,0 +1,53 @@
+{% set colors = ['', 'green', 'teal', 'yellow', 'red'] %}
+<div class="ui blur-top mix-blend" style="background: url({{ picture | image_style('blur_top') }});">
+    <div class="ui container center aligned">
+        <h1 class="ui inverted header">{{ 'Products' | t }}</h1>
+    </div>
+</div>
+<main class="ui main container" role="main">
+    <div class="ui tiny breadcrumb">
+        <a class="section" href="{{ path('<front>') }}">{{ 'Home' | t }}</a>
+        <i class="right chevron icon divider"></i>
+        <div class="active section">{{ 'Products' | t }}</div>
+    </div>
+    <div class="ui clearing divider"></div>
+
+    <main class="ui main container" role="main">
+
+        {% for type in all_types %}
+            <div class="ui {{ colors[type.id] }} segment">
+                <div class="ui header">
+                    {{ type['link'] }}
+                </div>
+                <div class="ui clearing divider"></div>
+
+                <div class="ui container">
+                    {{ type.description | raw }}
+                </div>
+
+                {% if type.children %}
+                    {% for child in type.children %}
+                        <h5 class="ui horizontal divider header {{ colors[type.id] }} fwn">
+                            {{ child['title'] }}
+                        </h5>
+
+                        <div class="doubling">
+                            {{ drupal_view('other_things', 'block_1', child['id']) }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h5 class="ui horizontal divider header {{ colors[type.id] }} fwn">
+                        {{ type['title'] }}
+                    </h5>
+
+                    <div class="doubling">
+                        {{ drupal_view('other_things', 'block_1', type['id']) }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+    </main>
+</main>
+
+

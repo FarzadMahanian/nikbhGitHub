@@ -1,0 +1,16 @@
+name: Nik
+type: theme
+description: This is Nik main theme.
+package: Nik
+core: 8.x
+
+libraries:
+  - nik/nik-header
+
+base theme: classy
+regions:
+  header: Header
+  slideshow: Slideshow
+  content: Content
+  footer: Footer
+  sidebar: Sidebar

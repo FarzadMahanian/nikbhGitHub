@@ -1,0 +1,39 @@
+{% set url = url('<current>') %}
+{% set title = 'News' | t %}
+{% set sub_title = 'All News' | t %}
+{% if 'learning' in url|render|render %}
+    {% set title = 'Learning Documents' | t %}
+    {% set sub_title = 'All Learning Documents' | t %}
+{% endif %}
+
+<div class="ui container">
+    <h1 class="ui center aligned header pt1">{{ title }}</h1>
+    <h5 class="ui horizontal divider header nik-red fwn">
+        {{ sub_title }}
+    </h5>
+
+    {% if header %}
+        <header>
+            {{ header }}
+        </header>
+    {% endif %}
+
+    {{ exposed }}
+    {{ attachment_before }}
+
+    <div class="view-ctr {#mb6 mt4#}">
+        {{ rows }}
+        {{ empty }}
+        {{ pager }}
+    </div>
+
+    {{ attachment_after }}
+    {{ more }}
+
+    {% if footer %}
+        <footer>
+            {{ footer }}
+        </footer>
+    {% endif %}
+
+</div>

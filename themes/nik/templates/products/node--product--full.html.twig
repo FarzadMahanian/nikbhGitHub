@@ -1,0 +1,64 @@
+{% set colors = ['', 'green', 'teal', 'yellow', 'red'] %}
+{% set colorcls = colors[node.field_product_type.value[0]['target_id']] %}
+
+<div class="ui blur-top mix-blend" style="background: url({{ node.field_main_picture.entity.fileuri | image_style('blur_top') }});">
+    <div class="ui container">
+        <h1 class="ui inverted header">{{ label }}</h1>
+    </div>
+</div>
+
+<main class="ui main container" role="main">
+
+    <div class="ui tiny breadcrumb">
+        <a class="section" href="{{ url('<front>') }}">{{ 'Home' | t }}</a>
+        <i class="right chevron icon divider"></i>
+        <a class="section" href="{{ path('productsPage') }}">{{ 'Products' | t }}</a>
+        <i class="right chevron icon divider"></i>
+        <a class="section" href="{{ content.field_product_type[0]['#url'] }}">{{ content.field_product_type[0]['#title'] }}</a>
+        <i class="right chevron icon divider"></i>
+        <div class="active section">{{ label }}</div>
+    </div>
+    <div class="ui clearing divider"></div>
+
+
+    <div class="ui stackable grid">
+        <div class="ten wide computer sixteen wide tablet column">
+            <img class="ui fluid image mb2" src="{{ node.field_main_picture.entity.fileuri | image_style('main_picture') }}">
+            <div class="ui container font-color">{{ content.body }}</div>
+
+            {% if node.field_more_pictures.value %}
+                <h4 class="ui horizontal divider header">
+                    <i class="image icon"></i>
+                    {{ 'Pictures' | t }}
+                </h4>
+                {{ content.field_more_pictures }}
+            {% endif %}
+
+            {% if node.field_catalog.value %}
+                <h4 class="ui horizontal divider header">
+                    <i class="clone icon"></i>
+                    {{ 'Documents' | t }}
+                </h4>
+                <p>{{ content.field_catalog }}</p>
+            {% endif %}
+
+            {#<div class="ui segment">
+                {{ drupal_view('other_things', 'block_1', node.field_product_type.value[0]['target_id']) }}
+            </div>#}
+
+        </div>
+
+
+        <div class="six wide computer sixteen wide tablet column">
+            {#<div class="{{ colorcls }} mb2">
+                {{ drupal_block('recenttinyproducts') }}
+            </div>#}
+            <div class="{{ colorcls }} mb2">
+                {{ drupal_block('mosttinypopular') }}
+            </div>
+        </div>
+
+    </div>
+</main>
+
+

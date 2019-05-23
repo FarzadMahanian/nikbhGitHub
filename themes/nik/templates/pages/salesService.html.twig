@@ -1,0 +1,233 @@
+<main class="ui main container" role="main">
+    <h1 class="ui center aligned header">{{ 'Sales Service' | t }}</h1>
+
+    <div class="ui tiny breadcrumb">
+        <a class="section" href="{{ url('<front>') }}">{{ 'Home' | t }}</a>
+        <i class="right chevron icon divider"></i>
+        <a class="section" href="{{ url('<front>')['#markup'] }}/company">{{ 'Company' | t }}</a>
+        <i class="right chevron icon divider"></i>
+        <div class="active section">{{ 'Sales Service' | t }}</div>
+    </div>
+    <div class="ui clearing divider"></div>
+
+    <div class="ui container" role="main">
+
+        <div class="ui service-tab menu nik-blue inverted">
+            <a class="item active" data-tab="services">
+                {{ 'Services' | t }}
+            </a>
+            <a class="item" data-tab="order">
+                {{ 'Order' | t }}
+            </a>
+            <a class="item" data-tab="spare">
+                {{ 'Spare Parts' | t }}
+            </a>
+        </div>
+        {#TAB Service#}
+        <div class="ui active tab segment" data-tab="services">
+
+            <form id="serviceForm" class="ui form p2 catForm">
+                <h3 class="ui dividing header">{{ 'Service' | t }}</h3>
+                <div class="two fields">
+                    <div class="field">
+                        <label>{{ 'Name' | t }}</label>
+                        <input type="text" name="name" placeholder="{{ 'Name' | t }}">
+                    </div>
+                    <div class="field">
+                        <label>{{ 'Phone' | t }}</label>
+                        <input type="text" name="phone" placeholder="{{ 'Phone' | t }}">
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>{{ 'Model' | t }}</label>
+                        <input type="text" name="model" placeholder="{{ 'Model' | t }}">
+                    </div>
+                    <div class="field">
+                        <label>{{ 'Production Year' | t }}</label>
+                        <input type="text" name="year" placeholder="{{ 'Production Year' | t }}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>{{ 'Project Location' | t }}</label>
+                    <input type="text" name="location" placeholder="{{ 'Project Location' | t }}">
+                </div>
+                <div class="field">
+                    <label>{{ 'Message' | t }}</label>
+                    <textarea name="message" placeholder="{{ 'Message' | t }}"></textarea>
+                </div>
+                <input type="hidden" name="cat" value="Service">
+
+                <button class="ui button blue" type="submit" name="message-send">{{ 'Send' | t }}</button>
+                <div class="ui error message"></div>
+                <div class="ui success message"></div>
+            </form>
+
+        </div>
+        {#TAB Order#}
+        <div class="ui tab segment" data-tab="order">
+
+            <form id="orderForm" class="ui form p2 catForm">
+                <h3 class="ui dividing header">{{ 'Order Product' | t }}</h3>
+                <div class="field">
+                    <label for="products-list">{{ 'Product' | t }}</label>
+                    <select id="products-list" name="product" class="ui selection search dropdown" multiple="">
+                        <option value="">{{ 'Products' | t }}</option>
+                        {% for product in products %}
+                            <option value="{{ product }}">{{ product }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <label>{{ 'Name' | t }}</label>
+                        <input type="text" name="name" placeholder="{{ 'Name' | t }}">
+                    </div>
+                    <div class="field">
+                        <label>{{ 'Phone' | t }}</label>
+                        <input type="text" name="phone" placeholder="{{ 'Phone' | t }}">
+                    </div>
+                    <div class="field">
+                        <label>{{ 'Email' | t }}</label>
+                        <input type="text" name="email" placeholder="{{ 'Email' | t }}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>{{ 'Message' | t }}</label>
+                    <textarea name="message" placeholder="{{ 'Message' | t }}"></textarea>
+                </div>
+                <input type="hidden" name="cat" value="Order">
+
+                <button class="ui button blue" type="submit" name="message-send">{{ 'Send' | t }}</button>
+                <div class="ui error message"></div>
+                <div class="ui success message"></div>
+            </form>
+
+        </div>
+        {#TAB Spare#}
+        <div class="ui tab segment" data-tab="spare">
+
+            <form id="spareForm" class="ui form p2 catForm">
+                <h3 class="ui dividing header">{{ 'Spare Product' | t }}</h3>
+                <div class="field">
+                    <label for="products-list">{{ 'Product' | t }}</label>
+                    <select id="products-list" name="product" class="ui selection search dropdown" multiple="">
+                        <option value="">{{ 'Products' | t }}</option>
+                        {% for product in products %}
+                            <option value="{{ product }}">{{ product }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <label>{{ 'Name' | t }}</label>
+                        <input type="text" name="name" placeholder="{{ 'Name' | t }}">
+                    </div>
+                    <div class="field">
+                        <label>{{ 'Phone' | t }}</label>
+                        <input type="text" name="phone" placeholder="{{ 'Phone' | t }}">
+                    </div>
+                    <div class="field">
+                        <label>{{ 'Email' | t }}</label>
+                        <input type="text" name="email" placeholder="{{ 'Email' | t }}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>{{ 'Message' | t }}</label>
+                    <textarea name="message" placeholder="{{ 'Message' | t }}"></textarea>
+                </div>
+                <input type="hidden" name="cat" value="Spare">
+
+                <button class="ui button blue" type="submit" name="message-send">{{ 'Send' | t }}</button>
+                <div class="ui error message"></div>
+                <div class="ui success message"></div>
+            </form>
+
+        </div>
+
+    </div>
+</main>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery('.menu.service-tab .item').tab({
+            history: true
+        });
+        jQuery('.ui.dropdown').dropdown();
+
+        var serviceForm = jQuery('#serviceForm');
+        serviceForm.form({
+            fields: {
+                name: 'empty',
+                phone: 'empty',
+                model: 'empty',
+                message: 'empty'
+            }
+        });
+        var orderForm = jQuery('#orderForm');
+        orderForm.form({
+            fields: {
+                product: 'empty',
+                name: 'empty',
+                phone: 'empty',
+                email: ['email', 'empty'],
+                message: 'empty'
+            }
+        });
+        var spareForm = jQuery('#spareForm');
+        orderForm.form({
+            fields: {
+                product: 'empty',
+                name: 'empty',
+                phone: 'empty',
+                email: ['email', 'empty'],
+                message: 'empty'
+            }
+        });
+        var catForm = jQuery('.catForm');
+        catForm.submit(function (e) {
+            var form = jQuery(e.target);
+            var getMessageBox = function (msg) {
+                return form.find('.' + msg + '.message');
+            };
+            e.preventDefault();
+            if (!form.form('is valid')) {
+                getMessageBox('error').transition('shake');
+                return false;
+            }
+            form.addClass('loading');
+            var formArray = form.serializeArray();
+            var formObject = {};
+            jQuery.each(formArray,
+                function (i, v) {
+                    formObject[v.name] = form.find('[name=' + v.name +']').val()
+                });
+
+            var url = drupalSettings.path.baseUrl;
+            if (drupalSettings.path.currentLanguage != 'en') {
+                url += drupalSettings.path.currentLanguage + '/';
+            }
+            jQuery.ajax({
+                url: url + 'nik/sendService',
+                data: JSON.stringify(formObject),
+                type: 'POST',
+                contentType: 'application/json',
+                success: function (r) {
+                    form.removeClass('loading');
+                    getMessageBox('success').html(Drupal.t('Your message has been sent successfully.'));
+                    getMessageBox('success').show();
+                    console.log('success', r);
+                },
+                error: function (r) {
+                    form.removeClass('loading');
+                    getMessageBox('error').html(Drupal.t('There is a problem on message server.'));
+                    getMessageBox('error').transition('shake');
+                    console.log('error', r);
+                }
+            });
+            return false;
+        });
+
+    });
+</script>

@@ -1,0 +1,6 @@
+@mixin hover-on($color, $darken: 20%) {
+    color: $color;
+    &:hover {
+        color: darken($color, $darken);
+    }
+}

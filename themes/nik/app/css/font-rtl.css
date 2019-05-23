@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'IranSans';
+  src: url("../fonts/iranSans/IranSans.otf");
+  src: local("iranSans/IranSans"), url("../fonts/iranSans/IranSans.ttf") format("truetype"), url("../fonts/iranSans/IranSans.woff") format("woff"), url("../fonts/iranSans/IranSans.woff2") format("woff2");
+}
+@font-face {
+  font-family: 'IranSansLight';
+  src: url("../fonts/iranSans/IranSansLight.otf");
+  src: local("iranSans/IranSansLight"), url("../fonts/iranSans/IranSansLight.ttf") format("truetype"), url("../fonts/iranSans/IranSansLight.woff") format("woff"), url("../fonts/iranSans/IranSansLight.woff2") format("woff2");
+}
+@font-face {
+  font-family: 'IranSansBold';
+  src: url("../fonts/iranSans/IranSansBold.otf");
+  src: local("iranSans/IranSansBold"), url("../fonts/iranSans/IranSansBold.ttf") format("truetype"), url("../fonts/iranSans/IranSansBold.woff") format("woff"), url("../fonts/iranSans/IranSansBold.woff2") format("woff2");
+}
+/* line 33, ../sass/font-rtl.scss */
+body, .container, .menu, a, li, input, .button, label, button, textarea {
+  font-family: IranSansLight, Tahoma, Arial, Sans-Serif, serif !important;
+}
+
+/* line 36, ../sass/font-rtl.scss */
+p, .field--name-body {
+  line-height: 1.8em !important;
+}
+
+/* line 39, ../sass/font-rtl.scss */
+.header, .header span,
+.ui.breadcrumb .active.section {
+  font-family: IranSans, Tahoma, Arial, Sans-Serif, serif !important;
+  font-weight: normal !important;
+}
+
+/* line 44, ../sass/font-rtl.scss */
+.container li {
+  line-height: 2em;
+}
+
+/* line 48, ../sass/font-rtl.scss */
+i.icon.angle.left:before {
+  content: "\f105";
+}
+
+/* line 51, ../sass/font-rtl.scss */
+i.icon.angle.right:before {
+  content: "\f104";
+}
+
+/* line 54, ../sass/font-rtl.scss */
+i.icon.caret.right:before {
+  content: "\f0d9";
+}
+
+/* line 57, ../sass/font-rtl.scss */
+i.icon.caret.left:before {
+  content: "\f0da";
+}
+
+/* line 60, ../sass/font-rtl.scss */
+i.icon.arrow.right:before {
+  content: "\f060";
+}
+
+/* line 63, ../sass/font-rtl.scss */
+i.icon.arrow.left:before {
+  content: "\f061";
+}
+
+/* line 66, ../sass/font-rtl.scss */
+i.icon.chevron.right:before {
+  content: "\f053";
+}
+
+/* line 69, ../sass/font-rtl.scss */
+i.icon.chevron.left:before {
+  content: "\f054";
+}
+
+/*# sourceMappingURL=font-rtl.css.map */

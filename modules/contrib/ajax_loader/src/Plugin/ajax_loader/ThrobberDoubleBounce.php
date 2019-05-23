@@ -1,0 +1,32 @@
+<?php
+
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
+/**
+ * @Throbber(
+ *   id = "throbber_double_bounce",
+ *   label = @Translation("Double bounce")
+ * )
+ */
+class ThrobberDoubleBounce extends ThrobberPluginBase {
+
+  /**
+   * @inheritdoc
+   */
+  protected function setMarkup() {
+    return '<div class="ajax-throbber sk-double-bounce">
+                <div class="sk-child sk-double-bounce1"></div>
+                <div class="sk-child sk-double-bounce2"></div>
+            </div>';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  protected function setCssFile() {
+    return $this->path . '/css/double-bounce.css';
+  }
+
+}

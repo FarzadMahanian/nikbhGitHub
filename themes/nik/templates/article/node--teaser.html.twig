@@ -1,0 +1,18 @@
+<div class="icon-title mobile-center">
+    <a href="{{ url }}">
+        <img class="ui small rounded aligned left floated image" src="{{ node.field_main_picture.entity.fileuri | image_style('cube_small') }}">
+    </a>
+</div>
+<div class="description mobile-break mobile-center">
+    <h3 class="ui header"><a href="{{ url }}">{{ label }}</a></h3>
+    {{ content.body }}
+
+    <div class="ui container h2em mobile-hide">
+        <a href="{{ url }}">
+            <div class="ui right floated labeled icon button basic nik-blue-color">
+                <i class="right arrow icon"></i>
+                {{ 'readmore' | t }}
+            </div>
+        </a>
+    </div>
+</div>

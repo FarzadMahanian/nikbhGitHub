@@ -1,0 +1,10 @@
+<div class="ui nik-gray vertical footer segment">
+    <div class="ui container">
+        <div class="logo">
+            <img src="{{ base_path }}themes/nik/app/images/logo-footer.svg" alt="Logo">
+        </div>
+        {{ drupal_menu('footer') }}
+        <div class="ui clearing divider"></div>
+        {{ 'Copyright by Nik' | t }} {{ 'now' | date("Y") }}
+    </div>
+</div>

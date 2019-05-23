@@ -1,0 +1,104 @@
+<main class="ui main container" role="main">
+    <h1 class="ui center aligned header">{{ 'Join Us' | t }}</h1>
+
+    <div class="ui tiny breadcrumb">
+        <a class="section" href="{{ path('<front>') }}">{{ 'Home' | t }}</a>
+        <i class="right chevron icon divider"></i>
+        <div class="active section">{{ 'Join Us' | t }}</div>
+    </div>
+    <div class="ui clearing divider"></div>
+
+    <main class="ui main container" role="main">
+
+        <form id="joinForm" class="ui form p2">
+            <h3 class="ui dividing header">{{ 'Join Us' | t }}</h3>
+            <div class="field">
+                <label>{{ 'Name' | t }}</label>
+                <input type="text" name="name" placeholder="{{ 'Name' | t }}">
+            </div>
+            <div class="three fields">
+                <div class="field">
+                    <label>{{ 'Email' | t }}</label>
+                    <input type="text" name="email" placeholder="{{ 'Email' | t }}">
+                </div>
+                <div class="field">
+                    <label>{{ 'Phone' | t }}</label>
+                    <input type="text" name="phone" placeholder="{{ 'Phone' | t }}">
+                </div>
+                <div class="field">
+                    <label>{{ 'Age' | t }}</label>
+                    <input type="text" name="age" placeholder="{{ 'Age' | t }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>{{ 'Message' | t }}</label>
+                <textarea name="message" placeholder="{{ 'Message' | t }}"></textarea>
+            </div>
+            <input type="hidden" name="cat" value="Service">
+
+            <button class="ui button blue" type="submit" name="message-send">{{ 'Send' | t }}</button>
+            <div class="ui error message"></div>
+            <div class="ui success message"></div>
+        </form>
+
+    </main>
+</main>
+<script type="text/javascript">
+    jQuery(function(){
+        var joinForm = jQuery('#joinForm');
+        joinForm.form({
+            fields: {
+                name: 'empty',
+                phone: 'empty',
+                email: 'empty',
+                age: 'empty',
+                message: 'empty'
+            }
+        });
+
+        joinForm.submit(function (e) {
+            var form = jQuery(e.target);
+            var getMessageBox = function(msg) {
+                return form.find('.' + msg + '.message');
+            };
+            e.preventDefault();
+            if (!form.form('is valid')) {
+                getMessageBox('error').transition('shake');
+                return false;
+            }
+            form.addClass('loading');
+            var formArray = form.serializeArray();
+            var formObject = {};
+            jQuery.each(formArray,
+                function (i, v) {
+                    formObject[v.name] = v.value;
+                });
+
+            var url = drupalSettings.path.baseUrl;
+            if (drupalSettings.path.currentLanguage != 'en') {
+                url += drupalSettings.path.currentLanguage + '/';
+            }
+            jQuery.ajax({
+                url: url + 'nik/joinUs',
+                data: JSON.stringify(formObject),
+                type: 'POST',
+                contentType: 'application/json',
+                success: function (r) {
+                    form.removeClass('loading');
+                    getMessageBox('success').html(Drupal.t('Your message has been sent successfully.'));
+                    getMessageBox('success').show();
+                    console.log('success', r);
+                },
+                error: function (r) {
+                    form.removeClass('loading');
+                    getMessageBox('error').html(Drupal.t('There is a problem on message server.'));
+                    getMessageBox('error').transition('shake');
+                    console.log('error', r);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+

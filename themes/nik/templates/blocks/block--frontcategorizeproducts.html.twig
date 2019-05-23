@@ -1,0 +1,25 @@
+{% set numbers = ['1', '2', '3', '4'] %}
+{% set random_array = numbers | shuffle %}
+<div class="ui container mb6">
+    <div class="ui grid">
+        <div class="sixteen wide column">
+            <div class="img-width100">
+                {{ drupal_view('other_things', 'block_2', random_array[0]) }}
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="four wide column">
+                {{ drupal_view('other_things', 'block_3', random_array[1]) }}
+            </div>
+            <div class="eight wide column">
+                {{ drupal_view('other_things', 'block_4', random_array[2]) }}
+            </div>
+            <div class="four wide column">
+                {{ drupal_view('other_things', 'block_3', random_array[3]) }}
+            </div>
+        </div>
+    </div>
+
+</div>
+

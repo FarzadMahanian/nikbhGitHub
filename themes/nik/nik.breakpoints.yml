@@ -1,0 +1,38 @@
+nik.tiny:
+  label: tiny
+  mediaQuery: 'all and (max-width: 500px)'
+  weight: 5
+  multipliers:
+    - 1x
+nik.small:
+  label: small
+  mediaQuery: 'all and (max-width: 500px) and (max-width: 920px)'
+  weight: 4
+  multipliers:
+    - 1x
+nik.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 920px) and (max-width: 1440px)'
+  weight: 3
+  multipliers:
+    - 1x
+nik.wide:
+  label: wide
+  mediaQuery: 'all and (min-width: 1440px) and (max-width: 1600px)'
+  weight: 2
+  multipliers:
+    - 1x
+nik.superb:
+  label: superb
+  mediaQuery: 'all and (min-width: 1600px)'
+  weight: 1
+  multipliers:
+    - 1x
+
+
+nik.responsive-menu:
+  label: responsive-menu
+  mediaQuery: 'all and (min-width: 920px)'
+  weight: 10
+  multipliers:
+    - 10x

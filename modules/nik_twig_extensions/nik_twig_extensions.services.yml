@@ -1,0 +1,5 @@
+services:
+  shuffle.twig_extension:
+    class: Drupal\nik_twig_extensions\TwigExtension\NikFilters
+    tags:
+      - { name: twig.extension }

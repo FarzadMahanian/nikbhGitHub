@@ -1,0 +1,22 @@
+<div class="ui fluid slide">
+    <div class="rel">
+        {{ content.field_slider }}
+        <div class="description abs">
+            <h3><a class="in-white" href="{{ node.field_link[0].url }}">{{ label }}</a></h3>
+            {{ content.body }}
+
+            <a class="ui mini nik-red right floated labeled icon button" href="{{ node.field_link[0].url }}">
+                <i class="right arrow icon"></i>
+                {{ 'More' | t }}
+            </a>
+
+        </div>
+    </div>
+</div>
+
+{#
+<a href="http://google.com" class="ui fluid image">
+    <img src="{{ file_url(node.field_slider.entity.fileuri) }}">
+
+</a>
+#}

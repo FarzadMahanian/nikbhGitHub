@@ -1,0 +1,60 @@
+productsPage:
+    path: /products
+    defaults:
+        _controller: Drupal\nikm\Controller\PageController::getProductsPage
+        _title: 'Products'
+    requirements:
+        _permission: 'access content'
+productPage:
+    path: /product
+    defaults:
+        _controller: Drupal\nikm\Controller\PageController::getProductsPage
+        _title: 'Products'
+    requirements:
+        _permission: 'access content'
+
+salesServicePage:
+    path: /salesService
+    defaults:
+        _controller: Drupal\nikm\Controller\PageController::getSalesServicePage
+        _title: 'Sales Service'
+    requirements:
+        _permission: 'access content'
+
+joinPage:
+    path: /join
+    defaults:
+        _controller: Drupal\nikm\Controller\PageController::getJoinPage
+        _title: 'Join Us'
+    requirements:
+        _permission: 'access content'
+
+sendContact:
+    path: /nik/sendContact
+    methods: ['POST']
+    defaults:
+        _controller: Drupal\nikm\Controller\PageController::sendContact
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: TRUE
+
+joinUs:
+    path: /nik/joinUs
+    methods: ['POST']
+    defaults:
+        _controller: Drupal\nikm\Controller\PageController::joinUs
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: TRUE
+
+sendService:
+    path: /nik/sendService
+    methods: ['POST']
+    defaults:
+        _controller: Drupal\nikm\Controller\PageController::sendService
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: TRUE
